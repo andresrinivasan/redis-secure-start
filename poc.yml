@@ -40,7 +40,7 @@ services:
     hostname: redis
     command: |
       /bin/sh -cx "
-      exec redis-server --requirepass `cat /secrets/redispass.txt`
+      /usr/local/bin/docker-entrypoint.sh --requirepass `cat /secrets/redispass.txt`
       "
     volumes:
       - db-data:/data:z
